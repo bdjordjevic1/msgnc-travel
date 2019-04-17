@@ -1,6 +1,13 @@
 package net.msgnetconomy.travel.data;
 
-public class TravelData {
+import lombok.Getter;
+import lombok.Setter;
+
+import java.io.Serializable;
+
+@Getter
+@Setter
+public class TravelData implements Serializable {
 
     private TravelOrderData travelOrder;
     private TravelReportData travelReport;

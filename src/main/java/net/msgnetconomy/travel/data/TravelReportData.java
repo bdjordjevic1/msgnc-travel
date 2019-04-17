@@ -1,9 +1,15 @@
 package net.msgnetconomy.travel.data;
 
+import lombok.Getter;
+import lombok.Setter;
+
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
 
-public class TravelReportData {
+@Getter
+@Setter
+public class TravelReportData implements Serializable {
 
     private LocalDateTime dateOfSubmission;
     private String firstName;

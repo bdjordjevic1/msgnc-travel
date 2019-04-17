@@ -1,8 +1,14 @@
 package net.msgnetconomy.travel.data;
 
+import lombok.Getter;
+import lombok.Setter;
+
+import java.io.Serializable;
 import java.util.List;
 
-public class DailyRateCalculationData {
+@Getter
+@Setter
+public class DailyRateCalculationData implements Serializable {
 
     private List<TravelPeriodData> travelPeriod;
     private double dailyRateTotal;

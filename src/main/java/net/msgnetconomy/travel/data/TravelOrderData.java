@@ -1,8 +1,14 @@
 package net.msgnetconomy.travel.data;
 
+import lombok.Getter;
+import lombok.Setter;
+
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class TravelOrderData {
+@Getter
+@Setter
+public class TravelOrderData implements Serializable {
 
     private LocalDateTime dateOfSubmission;
     private String description;
