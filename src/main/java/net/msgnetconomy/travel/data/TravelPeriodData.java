@@ -12,13 +12,13 @@ public class TravelPeriodData implements Serializable {
 
     private LocalDateTime start;
     private LocalDateTime end;
-    private int days;
-    private int hours;
-    private int minutes;
+    private long days;
+    private long hours;
+    private long minutes;
     private double amountOfDailyRates;
     private double dailyRate;
     private double dailyRateTotal;
-    private double breakfastIncluded;
-    private double lunchIncluded;
-    private double dinnerIncluded;
+    private boolean breakfastIncluded;
+    private boolean lunchIncluded;
+    private boolean dinnerIncluded;
 }
