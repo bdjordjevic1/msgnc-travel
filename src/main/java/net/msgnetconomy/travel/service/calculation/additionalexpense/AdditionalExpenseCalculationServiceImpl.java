@@ -4,7 +4,6 @@ import net.msgnetconomy.travel.data.AdditionalExpenseData;
 import net.msgnetconomy.travel.data.CurrencyData;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
