@@ -4,5 +4,5 @@ import net.msgnetconomy.travel.data.TravelData;
 
 public interface TravelService {
 
-    TravelData populateTravelPeriod(TravelData travelData);
+    TravelData calculate(TravelData travelData);
 }

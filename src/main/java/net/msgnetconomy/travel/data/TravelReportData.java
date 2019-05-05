@@ -6,6 +6,7 @@ import lombok.Setter;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Map;
 
 @Getter
 @Setter
@@ -19,5 +20,5 @@ public class TravelReportData implements Serializable {
     private DailyRateCalculationData dailyRateCalculation;
     private TransportationType transportationType;
     private AdditionalExpenseData additionalExpense;
-    private List<PayoutData> totalPayout;
+    private Map<CurrencyData, Double> totalPayout;
 }

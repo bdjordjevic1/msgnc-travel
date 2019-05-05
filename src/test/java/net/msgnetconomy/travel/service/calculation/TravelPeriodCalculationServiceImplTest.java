@@ -1,6 +1,7 @@
 package net.msgnetconomy.travel.service.calculation;
 
 import net.msgnetconomy.travel.data.TravelPeriodData;
+import net.msgnetconomy.travel.service.calculation.dailyratecalculation.TravelPeriodCalculationServiceImpl;
 import org.hamcrest.Matchers;
 import org.junit.Test;
 import org.junit.runner.RunWith;

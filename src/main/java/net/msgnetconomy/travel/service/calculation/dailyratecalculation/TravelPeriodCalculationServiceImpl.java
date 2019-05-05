@@ -1,4 +1,4 @@
-package net.msgnetconomy.travel.service.calculation;
+package net.msgnetconomy.travel.service.calculation.dailyratecalculation;
 
 import net.msgnetconomy.travel.data.TravelPeriodData;
 import org.joda.time.Interval;

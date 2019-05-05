@@ -2,7 +2,8 @@ package net.msgnetconomy.travel.service.travel;
 
 import net.msgnetconomy.travel.data.CountryData;
 import net.msgnetconomy.travel.data.TravelData;
-import net.msgnetconomy.travel.service.calculation.TravelPeriodCalculationService;
+import net.msgnetconomy.travel.service.calculation.dailyratecalculation.DailyRateTotalCalculationService;
+import net.msgnetconomy.travel.service.calculation.dailyratecalculation.TravelPeriodCalculationService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -14,16 +15,28 @@ public class TravelServiceImpl implements TravelService {
     @Resource
     private TravelPeriodCalculationService travelPeriodCalculationService;
 
+    @Resource
+    private DailyRateTotalCalculationService dailyRateTotalCalculationService;
+
     @Override
-    public TravelData populateTravelPeriod(TravelData travelData) {
+    public TravelData calculate(TravelData travelData) {
         if (travelData.getTravelReport() != null && travelData.getTravelReport().getDailyRateCalculation() != null) {
-            new ArrayList<>(travelData.getTravelReport().getDailyRateCalculation().getTravelPeriod()).stream()
-                    .forEach(travelPeriod -> {
-                        travelPeriod.setDailyRate(getDailyRate(travelData));
-                        travelPeriodCalculationService.calculate(travelPeriod);
-                    });
+            calculateDailyRateCalculation(travelData);
         }
         return travelData;
+    }
+
+    private void calculateDailyRateCalculation(TravelData travelData) {
+        calculateTravelPeriod(travelData);
+        dailyRateTotalCalculationService.calculate(travelData.getTravelReport().getDailyRateCalculation());
+    }
+
+    private void calculateTravelPeriod(TravelData travelData) {
+        new ArrayList<>(travelData.getTravelReport().getDailyRateCalculation().getTravelPeriod())
+                .forEach(travelPeriod -> {
+                    travelPeriod.setDailyRate(getDailyRate(travelData));
+                    travelPeriodCalculationService.calculate(travelPeriod);
+                });
     }
 
     private double getDailyRate(TravelData travel) {
