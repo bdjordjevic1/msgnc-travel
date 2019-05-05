@@ -16,10 +16,10 @@ import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.*;
 
 @RunWith(MockitoJUnitRunner.class)
-public class AdditionalExpenseTotalPayoutCalculationServiceImplTest {
+public class AdditionalExpenseCalculationServiceImplTest {
 
     @InjectMocks
-    AdditionalExpenseTotalPayoutCalculationServiceImpl additionalExpenseTotalPayoutCalculationService;
+    AdditionalExpenseCalculationServiceImpl additionalExpenseCalculationService;
 
     @Test
     public void calculate() {
@@ -46,7 +46,7 @@ public class AdditionalExpenseTotalPayoutCalculationServiceImplTest {
         expense4.setPrice(320d);
 
         additionalExpense.setExpenses(Arrays.asList(expense1, expense2, expense3, expense4));
-        additionalExpenseTotalPayoutCalculationService.calculate(additionalExpense);
+        additionalExpenseCalculationService.calculate(additionalExpense);
         Map<CurrencyData, Double> totalPayout = additionalExpense.getTotalPayout();
         assertThat(totalPayout.size(), is(2));
         assertThat(totalPayout.get(currencyEuro), is(48d));
