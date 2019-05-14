@@ -10,6 +10,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 import java.time.LocalDateTime;
 
+import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.*;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -18,17 +19,15 @@ public class TravelPeriodCalculationServiceImplTest {
     @InjectMocks
     TravelPeriodCalculationServiceImpl travelPeriodCalculationService;
 
-    private static final double AT_DAILY_RATE = 58d;
-
     @Test
     public void calculate() {
         TravelPeriodData travelPeriodData = new TravelPeriodData();
-        travelPeriodData.setStart(LocalDateTime.of(2019, 2, 19, 0, 0));
+        travelPeriodData.setStart(LocalDateTime.of(2019, 2, 18, 13, 30));
         travelPeriodData.setEnd(LocalDateTime.of(2019, 2, 22, 17, 30));
-        travelPeriodData.setDailyRate(AT_DAILY_RATE);
-        travelPeriodData.setBreakfastIncluded(true);
 
         travelPeriodData = travelPeriodCalculationService.calculate(travelPeriodData);
-        assertThat(travelPeriodData.getDailyRateTotal(), Matchers.is(208.8d));
+        assertThat(travelPeriodData.getDays(), is(4L));
+        assertThat(travelPeriodData.getHours(), is(4L));
+        assertThat(travelPeriodData.getMinutes(), is(0L));
     }
 }

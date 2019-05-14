@@ -45,16 +45,7 @@ public class TravelServiceImpl implements TravelService {
     }
 
     private void calculateDailyRateCalculation(TravelData travelData) {
-        calculateTravelPeriod(travelData);
         dailyRateTotalCalculationService.calculate(travelData.getTravelReport().getDailyRateCalculation());
-    }
-
-    private void calculateTravelPeriod(TravelData travelData) {
-        new ArrayList<>(travelData.getTravelReport().getDailyRateCalculation().getTravelPeriod())
-                .forEach(travelPeriod -> {
-                    travelPeriod.setDailyRate(getDailyRate(travelData));
-                    travelPeriodCalculationService.calculate(travelPeriod);
-                });
     }
 
     private double getDailyRate(TravelData travel) {

@@ -15,10 +15,4 @@ public class TravelPeriodData implements Serializable {
     private long days;
     private long hours;
     private long minutes;
-    private double amountOfDailyRates;
-    private double dailyRate;
-    private double dailyRateTotal;
-    private boolean breakfastIncluded;
-    private boolean lunchIncluded;
-    private boolean dinnerIncluded;
 }
