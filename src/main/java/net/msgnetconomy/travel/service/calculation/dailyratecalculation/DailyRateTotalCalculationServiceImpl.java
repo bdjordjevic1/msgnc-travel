@@ -48,7 +48,7 @@ public class DailyRateTotalCalculationServiceImpl implements DailyRateTotalCalcu
                                            double reductionFactor,
                                            double amountOfDailyRates,
                                            double dailyRate) {
-        return maximumNumberOfMealsOfSameType * dailyRate * reductionFactor + (amountOfDailyRates - maximumNumberOfMealsOfSameType) * dailyRate;
+        return dailyRate * reductionFactor + (amountOfDailyRates - maximumNumberOfMealsOfSameType) * dailyRate;
     }
 
     private double calculateReductionFactor(Map<MealType, Integer> meals, int maximumNumberOfMealsOfSameType) {
