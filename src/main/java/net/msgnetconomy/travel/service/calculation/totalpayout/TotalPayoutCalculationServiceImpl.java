@@ -10,7 +10,7 @@ public class TotalPayoutCalculationServiceImpl implements TotalPayoutCalculation
     @Override
     public TravelReportData calculate(TravelReportData travelReport) {
         double dailyRateTotal = travelReport.getDailyRateCalculation().getDailyRateTotal();
-        CurrencyData dailyRateCurrency = travelReport.getCountryTo().getCurrency();
+        CurrencyData dailyRateCurrency = travelReport.getLocationTo().getCurrency();
 
         Map<CurrencyData, Double> totalPayout = travelReport.getAdditionalExpense().getTotalPayout();
         totalPayout.merge(dailyRateCurrency, dailyRateTotal, Double::sum);

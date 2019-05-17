@@ -7,10 +7,11 @@ import java.io.Serializable;
 
 @Getter
 @Setter
-public class CountryData implements Serializable {
+public class LocationData implements Serializable {
 
-    private String name;
+    private String country;
     private String isoCode;
     private double dailyRate;
     private CurrencyData currency;
+    private String city;
 }

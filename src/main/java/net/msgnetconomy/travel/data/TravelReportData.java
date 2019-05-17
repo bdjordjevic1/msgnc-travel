@@ -4,19 +4,18 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
-import java.util.List;
+import java.time.LocalDate;
 import java.util.Map;
 
 @Getter
 @Setter
 public class TravelReportData implements Serializable {
 
-    private LocalDateTime dateOfSubmission;
+    private LocalDate dateOfSubmission;
     private String firstName;
     private String lastName;
-    private CountryData countryFrom;
-    private CountryData countryTo;
+    private LocationData locationFrom;
+    private LocationData locationTo;
     private DailyRateCalculationData dailyRateCalculation;
     private TransportationType transportationType;
     private AdditionalExpenseData additionalExpense;

@@ -1,6 +1,5 @@
 package net.msgnetconomy.travel.service.travel;
 
-import net.msgnetconomy.travel.data.CountryData;
 import net.msgnetconomy.travel.data.TravelData;
 import net.msgnetconomy.travel.service.calculation.additionalexpense.AdditionalExpenseCalculationService;
 import net.msgnetconomy.travel.service.calculation.dailyratecalculation.DailyRateTotalCalculationService;
@@ -9,7 +8,6 @@ import net.msgnetconomy.travel.service.calculation.totalpayout.TotalPayoutCalcul
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
 
 @Service("travelService")
 public class TravelServiceImpl implements TravelService {
@@ -46,11 +44,6 @@ public class TravelServiceImpl implements TravelService {
 
     private void calculateDailyRateCalculation(TravelData travelData) {
         dailyRateTotalCalculationService.calculate(travelData.getTravelReport().getDailyRateCalculation());
-    }
-
-    private double getDailyRate(TravelData travel) {
-        CountryData destCountry = travel.getTravelReport().getCountryTo();
-        return destCountry != null ? destCountry.getDailyRate() : 0;
     }
 
 }

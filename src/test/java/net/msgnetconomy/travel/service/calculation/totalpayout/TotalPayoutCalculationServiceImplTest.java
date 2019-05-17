@@ -6,7 +6,6 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,10 +24,10 @@ public class TotalPayoutCalculationServiceImplTest {
         DailyRateCalculationData dailyRateCalculation = new DailyRateCalculationData();
         dailyRateCalculation.setDailyRateTotal(237.8d);
 
-        CountryData country = new CountryData();
+        LocationData location = new LocationData();
         CurrencyData currencyEuro = new CurrencyData();
         currencyEuro.setIsoCode("EUR");
-        country.setCurrency(currencyEuro);
+        location.setCurrency(currencyEuro);
 
         CurrencyData currencyRSD = new CurrencyData();
         currencyEuro.setIsoCode("RSD");
@@ -39,7 +38,7 @@ public class TotalPayoutCalculationServiceImplTest {
         additionalExpenseTotalPayout.put(currencyEuro, 48d);
         additionalExpense.setTotalPayout(additionalExpenseTotalPayout);
 
-        travelReport.setCountryTo(country);
+        travelReport.setLocationTo(location);
         travelReport.setDailyRateCalculation(dailyRateCalculation);
         travelReport.setAdditionalExpense(additionalExpense);
 

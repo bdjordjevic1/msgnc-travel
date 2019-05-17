@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Title of document</title>
+</head>
+
+<body>
+<div class="companyHeading">
+    <p>msgNETCONOMY d.o.o</p>
+    <p>Omladinskih brigada 90g</p>
+    <p>PIB 109237670</p>
+</div>
+<div class="generalHeading">
+    <p>PUTNI RACUN</p>
+    <table id="general">
+        <tr>
+            <th>Broj putnog naloga</th>
+            <th>Datum izdavanja</th>
+            <th>Nalogodavac</th>
+        </tr>
+        <tr>
+            <td></td>
+            <td th:text="${travelData.getTravelReport().getDateOfSubmission()}"></td>
+            <td>msgNETCONOMY d.o.o</td>
+        </tr>
+    </table>
+</div>
+<div>IME I PREZIME</div>
+<div th:text="${travelData.getTravelReport().getFirstName()} + ' ' + ${travelData.getTravelReport().getLastName()}"></div>
+</body>
+
+</html>

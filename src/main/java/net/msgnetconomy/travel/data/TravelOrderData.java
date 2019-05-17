@@ -4,13 +4,13 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Getter
 @Setter
 public class TravelOrderData implements Serializable {
 
-    private LocalDateTime dateOfSubmission;
-    private String description;
+    private LocalDate dateOfSubmission;
     private String includedExpenses;
+    private String purposeOfTravel;
 }
