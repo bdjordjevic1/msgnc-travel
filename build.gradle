@@ -29,4 +29,5 @@ dependencies {
 	compile 'org.thymeleaf:thymeleaf:2.0.5'
 	compile 'org.xhtmlrenderer:flying-saucer-core:9.1.18'
 	compile 'org.xhtmlrenderer:flying-saucer-pdf-itext5:9.1.18'
+	compile 'io.craftsman:dozer-jdk8-support:1.0.0'
 }

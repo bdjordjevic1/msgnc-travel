@@ -1,7 +1,8 @@
-package net.msgnetconomy.travel.service.document;
+package net.msgnetconomy.travel.service.report;
 
 import lombok.extern.slf4j.Slf4j;
 import net.msgnetconomy.travel.data.TravelData;
+import org.springframework.stereotype.Service;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
@@ -11,7 +12,8 @@ import java.io.FileOutputStream;
 import java.io.OutputStream;
 
 @Slf4j
-public class DocumentGenerationServiceImpl implements DocumentGenerationService {
+@Service("reportService")
+public class ReportServiceImpl implements ReportService {
 
     @Override
     public void generatePdf(TravelData travelData) {

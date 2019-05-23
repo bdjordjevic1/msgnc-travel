@@ -1,8 +1,8 @@
-package net.msgnetconomy.travel.service.document;
+package net.msgnetconomy.travel.service.report;
 
 import net.msgnetconomy.travel.data.TravelData;
 
-public interface DocumentGenerationService {
+public interface ReportService {
 
     void generatePdf(TravelData travelData);
 }

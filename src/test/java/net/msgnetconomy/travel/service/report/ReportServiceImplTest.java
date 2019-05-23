@@ -1,4 +1,4 @@
-package net.msgnetconomy.travel.service.document;
+package net.msgnetconomy.travel.service.report;
 
 import net.msgnetconomy.travel.data.*;
 import org.junit.Test;
@@ -11,10 +11,10 @@ import java.time.LocalDateTime;
 import java.util.*;
 
 @RunWith(MockitoJUnitRunner.class)
-public class DocumentGenerationServiceImplTest {
+public class ReportServiceImplTest {
 
     @InjectMocks
-    DocumentGenerationServiceImpl documentGenerationService;
+    ReportServiceImpl documentGenerationService;
 
     @Test
     public void name() {
