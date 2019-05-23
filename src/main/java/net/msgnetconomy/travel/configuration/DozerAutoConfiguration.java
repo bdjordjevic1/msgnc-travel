@@ -14,11 +14,8 @@ import org.springframework.core.io.support.ResourcePatternResolver;
 @Configuration
 public class DozerAutoConfiguration {
 
-    @Autowired
-    private ResourcePatternResolver resourcePatternResolver;
-
     @Bean
-    public DozerBeanMapper dozerBeanMapper() throws IOException {
+    public DozerBeanMapper dozerBeanMapper(@Autowired ResourcePatternResolver resourcePatternResolver) throws IOException {
         Resource[] resources = resourcePatternResolver.getResources("classpath:dozer-mappings/*.xml");
         if (resources == null || resources.length == 0) {
             return new DozerBeanMapper();
