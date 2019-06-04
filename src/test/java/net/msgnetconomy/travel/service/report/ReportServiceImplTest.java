@@ -34,12 +34,6 @@ public class ReportServiceImplTest {
         locationTo.setCity("Graz");
         travelReportData.setLocationTo(locationTo);
 
-        LocationData locationFrom = new LocationData();
-        CurrencyData currencyRSD = new CurrencyData();
-        currencyEuro.setIsoCode("RSD");
-        locationFrom.setCurrency(currencyRSD);
-        travelReportData.setLocationFrom(locationFrom);
-
         DailyRateCalculationData dailyRateCalculationData = new DailyRateCalculationData();
         dailyRateCalculationData.setDailyRate(58);
 
@@ -68,20 +62,16 @@ public class ReportServiceImplTest {
         ExpenseData expense2 = new ExpenseData();
         expense2.setPrice(8102.95);
         expense2.setDescription("Gorivo - Srbija");
-        expense2.setCurrency(currencyRSD);
         ExpenseData expense3 = new ExpenseData();
         expense3.setPrice(308);
         expense3.setDescription("Taksi - Airport city do Europcar");
-        expense3.setCurrency(currencyRSD);
         ExpenseData expense4 = new ExpenseData();
         expense4.setPrice(320);
         expense4.setDescription("Taksi - Europcar do Airport city");
-        expense4.setCurrency(currencyRSD);
         List<ExpenseData> expenses = Arrays.asList(expense1, expense2, expense3, expense4);
         additionalExpense.setExpenses(expenses);
         Map<CurrencyData, Double> totalPayout = new HashMap<>();
         totalPayout.put(currencyEuro, 285.80);
-        totalPayout.put(currencyRSD, 8730.95);
         additionalExpense.setTotalPayout(totalPayout);
         travelReportData.setAdditionalExpense(additionalExpense);
 

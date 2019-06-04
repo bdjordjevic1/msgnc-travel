@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-net.msgnetconomy.travel.configuration.DozerAutoConfiguration
+net.msgnetconomy.travel.configuration.DozerAutoConfiguration,net.msgnetconomy.travel.configuration.WebConfig

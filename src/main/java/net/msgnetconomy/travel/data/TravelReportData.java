@@ -14,7 +14,6 @@ public class TravelReportData implements Serializable {
     private LocalDate dateOfSubmission;
     private String firstName;
     private String lastName;
-    private LocationData locationFrom;
     private LocationData locationTo;
     private DailyRateCalculationData dailyRateCalculation;
     private TransportationType transportationType;

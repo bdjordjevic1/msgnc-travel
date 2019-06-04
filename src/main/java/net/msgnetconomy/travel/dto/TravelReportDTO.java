@@ -9,12 +9,11 @@ import java.time.LocalDate;
 
 @Getter
 @Setter
-public class TravelReportDTO implements Serializable {
+class TravelReportDTO implements Serializable {
 
     private LocalDate dateOfSubmission;
     private String firstName;
     private String lastName;
-    private LocationDTO locationFrom;
     private LocationDTO locationTo;
     private DailyRateCalculationDTO dailyRateCalculation;
     private TransportationType transportationType;
