@@ -1,8 +1,6 @@
 package net.msgnetconomy.travel.service.calculation.dailyratecalculation;
 
-import net.msgnetconomy.travel.data.DailyRateCalculationData;
-import net.msgnetconomy.travel.data.MealType;
-import net.msgnetconomy.travel.data.TravelPeriodData;
+import net.msgnetconomy.travel.data.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -10,6 +8,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.atomic.LongAccumulator;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
@@ -33,8 +32,13 @@ public class DailyRateTotalCalculationServiceImplTest {
         meals.put(MealType.DINNER, 0);
         dailyRateCalculationData.setMeals(meals);
         dailyRateCalculationData.setDailyRate(58d);
+        LocationData locationTo = new LocationData();
+        locationTo.setDailyRate(58);
+        TravelReportData travelReportData = new TravelReportData();
+        travelReportData.setLocationTo(locationTo);
+        travelReportData.setDailyRateCalculation(dailyRateCalculationData);
 
-        dailyRateCalculationData = dailyRateTotalCalculationService.calculate(dailyRateCalculationData);
+        dailyRateCalculationData = dailyRateTotalCalculationService.calculate(travelReportData);
 
         assertThat(dailyRateCalculationData.getDailyRateTotal(), is(150.8d));
     }
@@ -53,7 +57,13 @@ public class DailyRateTotalCalculationServiceImplTest {
         dailyRateCalculationData.setMeals(meals);
         dailyRateCalculationData.setDailyRate(58d);
 
-        dailyRateCalculationData = dailyRateTotalCalculationService.calculate(dailyRateCalculationData);
+        LocationData locationTo = new LocationData();
+        locationTo.setDailyRate(58);
+        TravelReportData travelReportData = new TravelReportData();
+        travelReportData.setLocationTo(locationTo);
+        travelReportData.setDailyRateCalculation(dailyRateCalculationData);
+
+        dailyRateCalculationData = dailyRateTotalCalculationService.calculate(travelReportData);
 
         assertThat(dailyRateCalculationData.getDailyRateTotal(), is(179.8d));
     }

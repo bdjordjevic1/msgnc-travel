@@ -43,7 +43,7 @@ public class TravelServiceImpl implements TravelService {
     }
 
     private void calculateDailyRateCalculation(TravelData travelData) {
-        dailyRateTotalCalculationService.calculate(travelData.getTravelReport().getDailyRateCalculation());
+        dailyRateTotalCalculationService.calculate(travelData.getTravelReport());
     }
 
 }

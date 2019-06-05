@@ -2,6 +2,7 @@ package net.msgnetconomy.travel.service.calculation.dailyratecalculation;
 
 import net.msgnetconomy.travel.data.DailyRateCalculationData;
 import net.msgnetconomy.travel.data.MealType;
+import net.msgnetconomy.travel.data.TravelReportData;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
@@ -16,9 +17,10 @@ public class DailyRateTotalCalculationServiceImpl implements DailyRateTotalCalcu
     private static final double DINNER_REDUCTION_FACTOR = 0.3;
 
     @Override
-    public DailyRateCalculationData calculate(DailyRateCalculationData dailyRateCalculationData) {
+    public DailyRateCalculationData calculate(TravelReportData travelReportData) {
+        DailyRateCalculationData dailyRateCalculationData = travelReportData.getDailyRateCalculation();
         calculateAmountOfDailyRates(dailyRateCalculationData);
-        calculateDailyRateTotal(dailyRateCalculationData);
+        calculateDailyRateTotal(dailyRateCalculationData, travelReportData.getLocationTo().getDailyRate());
         return dailyRateCalculationData;
     }
 
@@ -33,13 +35,13 @@ public class DailyRateTotalCalculationServiceImpl implements DailyRateTotalCalcu
         }
     }
 
-    private void calculateDailyRateTotal(DailyRateCalculationData dailyRateCalculationData) {
+    private void calculateDailyRateTotal(DailyRateCalculationData dailyRateCalculationData, double dailyRate) {
         Map<MealType, Integer> meals = dailyRateCalculationData.getMeals();
         int maximumNumberOfMealsOfSameType = findMaximumNumberOfMealsOfSameType(meals);
         double dailyRateTotal = calculateDailyRateTotal(maximumNumberOfMealsOfSameType,
                 calculateReductionFactor(meals, maximumNumberOfMealsOfSameType),
                 dailyRateCalculationData.getAmountOfDailyRates(),
-                dailyRateCalculationData.getDailyRate());
+                dailyRate);
         dailyRateCalculationData.setDailyRateTotal(dailyRateTotal);
 
     }
